@@ -1,0 +1,13 @@
+
+# HKS-internal
+HKS-R-reports
+student-feedback
+
+Icon
+.DS_Store
+
+.Rhistory
+.RData
+.Rproj.user
+
+

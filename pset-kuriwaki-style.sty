@@ -1,0 +1,120 @@
+\documentclass[11pt]{article}
+
+
+% Page size
+\usepackage[top=1.2in, bottom=1.2in, left=1.4in, right=1.4in]{geometry}
+
+% Load Packages --------
+\usepackage{placeins}
+\usepackage{graphicx,grffile}
+
+%% Math ----
+\usepackage{amssymb, amsmath, amsthm}
+
+%% Tables ---
+
+
+% Fonts ---------
+
+% Color
+\usepackage{xcolor}
+\definecolor{crimson}{RGB}{156,0,0}
+
+
+%% Implement textsf for everything
+\usepackage[sfdefault]{roboto}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[cm]{sfmath}
+
+%% Hyperref
+\usepackage[hidelinks = true,
+            colorlinks = true,
+            urlcolor = crimson,
+            linkcolor = crimson]{hyperref}
+
+
+% Tight list ---
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Math commands --------
+
+\newcommand{\var}{\textnormal{Var}}
+\newcommand{\cov}{\textnormal{Cov}}
+\newcommand{\cor}{\textnormal{Cor}}
+
+% Highlighters
+
+% code
+\usepackage{xcolor}
+\definecolor{light-gray}{gray}{0.95}
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+\newcommand{\highlight}[1]{\colorbox{yellow}{#1}}
+
+% foots
+\usepackage[hang, bottom]{footmisc}
+\setlength{\footnotemargin}{1.2em} % separation between number and text
+\interfootnotelinepenalty=10000 %% Completely prevent breaking of footnotes
+
+% Figure caption?
+\usepackage[labelfont=bf]{caption}
+\setlength{\captionmargin}{10pt}
+
+
+
+
+% Actual Input ------
+% Figures
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+
+% Shading and Rmd macros
+$if(listings)$
+\usepackage{listings}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=r,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+$endif$
+$if(tables)$
+\usepackage{longtable,booktabs}
+$endif$
+
+
+$if(title)$
+\title{ \LARGE\textbf{$title$}}
+$endif$
+
+\author{$for(author)$$author$$if(thanks)$\thanks{$thanks$} $endif$ $sep$\\$endfor$}
+
+
+$if(date)$
+\date{$date$}
+$endif$
+
+\begin{document}
+
+$if(title)$
+\maketitle
+$endif$
+
+$body$
+\end{document}
+
+
+
+
